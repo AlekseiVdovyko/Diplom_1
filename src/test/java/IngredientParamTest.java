@@ -59,6 +59,6 @@ public class IngredientParamTest {
     public void checkGetTypeIngredientTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actual = ingredient.getType();
-        Assert.assertEquals("job", expectedType, actual);
+        Assert.assertEquals("Ошибка в типе ингредиента", expectedType, actual);
     }
 }
