@@ -77,12 +77,12 @@ public class BurgerTest {
         Mockito.when(anotherIngredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(anotherIngredient.getName()).thenReturn("Соус Spicy-X");
         Mockito.when(anotherIngredient.getPrice()).thenReturn(90F);
-        String expected = String.format("(==== %s ====)%n", "Краторная булка N-200i") +
-                String.format("= %s %s =%n", "filling", "Сыр с астероидной плесенью") +
-                String.format("= %s %s =%n", "sauce", "Соус Spicy-X") +
-                String.format("(==== %s ====)%n", "Краторная булка N-200i") +
-                String.format("%nPrice: %f%n", 6742F);
-        StringBuilder actual = new StringBuilder(burger.getReceipt());
-        Assert.assertEquals("Ошибка в рецепте бургера", expected, actual.toString());
+        String expected = "(==== Краторная булка N-200i ====)\r\n" +
+                "= filling Сыр с астероидной плесенью =\r\n" +
+                "= sauce Соус Spicy-X =\r\n" +
+                "(==== Краторная булка N-200i ====)\r\n" +
+                "\r\nPrice: 6742,000000\r\n";
+        String actual = burger.getReceipt();
+        Assert.assertEquals("Ошибка в рецепте бургера", expected, actual);
     }
 }
